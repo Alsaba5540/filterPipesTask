@@ -1,0 +1,54 @@
+
+<h1 class="bg-primary text-center mt-4"> summary Pipes</h1>
+
+<div class="container mt-4">
+  <div class="row">
+   
+    <div class="col-md-4" *ngFor="let file of filesArray">
+      <div class="card">
+        <div class="card-header">
+          <h2>{{file.name}}</h2>
+        </div>
+        <div class="card-body">
+        {{file.size | files }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="bg-primary text-white text-center mt-4">  Pipes</h2>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-sm-6 offset-sm-3 mb-4 mt-4">
+            <input type="text" class="form-control" placeholder="Search by team name"
+            [(ngModel)] = "searchByValue">
+
+        </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr >
+                    <th>Sr no </th>
+                    <th>Name</th>
+                    <th>Team</th>
+                    <th>ODI Runs</th>
+                    <th>Test Runs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor ="let player of playersArray |filterPlayers : searchByValue; index as i ">
+                        <td>{{i + 1 }}</td>
+                        <td>{{player.name}}</td>
+                        <td>{{player.team}}</td>
+                        <td>{{player.odiRuns}}</td>
+                        <td>{{player.testRuns}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <app-background-image></app-background-image> -->
